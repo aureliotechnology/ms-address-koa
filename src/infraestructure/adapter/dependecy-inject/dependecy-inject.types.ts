@@ -1,7 +1,8 @@
 // types.ts
 
 const TYPES = {
-    IController: Symbol.for("IController"),
+    Controller: Symbol.for("Controller"),
+    UC: Symbol.for("UC"),
 };
 
 export { TYPES };

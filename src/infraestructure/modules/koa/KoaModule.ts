@@ -5,6 +5,8 @@ import serve from 'koa-static'
 import { Action, ClassConstructor, createKoaServer, IocAdapter, useContainer } from 'routing-controllers'
 import { TYPES } from '@infraestructure/adapter/dependecy-inject/dependecy-inject.types'
 import DependecyInject from '@infraestructure/adapter/dependecy-inject'
+import { listClass } from '@infraestructure/config/util/list-class'
+import AddressController from '~/presentation/controllers/address.controller'
 
 @injectable()
 export default class KoaModule implements IocAdapter {
@@ -13,11 +15,10 @@ export default class KoaModule implements IocAdapter {
   constructor() {
     // Sentry.init({ dsn: appConfig.SENTRY_DSN })
     const newLocal = this.container = DependecyInject.getContainer();
-
     this.app = createKoaServer({
       cors: true,
       controllers: [
-       
+        AddressController
       ],
       defaultErrorHandler: false,
       middlewares: [],
